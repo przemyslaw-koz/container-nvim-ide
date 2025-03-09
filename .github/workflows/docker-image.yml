@@ -12,6 +12,6 @@ jobs:
     - name: Build the Docker image
       run: docker build -t tourdeprzem/neovim-ide:${{ github.sha }}
     - name: Log in to Docker Hub
-      run: docker login -u ${{ secretes.DOCKER_USERNAME }} -p ${{ secretes.DOCKER_PASSWORD }}
+      run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
     - name: Push the Docker Image
       run: docker push tourdeprzem/neovim-ide:${{ github.sha }}
