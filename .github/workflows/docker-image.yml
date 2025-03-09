@@ -1,0 +1,17 @@
+name: Neovim IDE Docker Image CI
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@3
+    - name: Build the Docker image
+      run: docker build -t tourdeprzem/neovim-ide:${{ github.sha }}
+    - name: Log in to Docker Hub
+      run: docker login -u ${{ secretes.DOCKER_USERNAME }} -p ${{ secretes.DOCKER_PASSWORD }}
+    - name: Push the Docker Image
+      run: docker push tourdeprzem/neovim-ide:${{ github.sha }}
