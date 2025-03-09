@@ -16,4 +16,4 @@ jobs:
     - name: Push the Docker Image
       run: docker push tourdeprzem/neovim-ide:${{ github.sha }}
     - name: Remove Docker config.json file
-      run: rm /home/runnner/.docker/config.json
+      run: rm /home/runner/.docker/config.json
