@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build -t tourdeprzem/neovim-ide:${{ github.sha }}
+      run: docker build -t tourdeprzem/neovim-ide:${{ github.sha }} .
     - name: Log in to Docker Hub
       run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
     - name: Push the Docker Image
